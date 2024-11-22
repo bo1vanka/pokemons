@@ -12,13 +12,31 @@ async function fetchData(){
         }
 
         const data = await response.json();
+
         const pokemonSprite = data.sprites.front_default;
-        
+        const pokemonType = data.types.map(typeInfo => typeInfo.type.name).join(", ");
+        const pokemonWeight = data.weight;  
+        const pokemonHeight = data.height;
+
 
         const imgElement = document.getElementById("pokemonSprite");
+        const weightElement = document.getElementById("pokemonWeight");
+        const typeElement = document.getElementById("pokemonType");
+        const heightElement = document.getElementById("pokemonHeight");
+
 
         imgElement.src = pokemonSprite;
         imgElement.style.display = "block";
+
+        weightElement.textContent = `Weight: ${pokemonWeight / 10} kg`;
+        heightElement.textContent = `Height: ${pokemonHeight / 10} m  `;
+        typeElement.textContent = `Type: ${pokemonType}`;
+        
+
+
+
+
+
     }
     catch(error){
         console.error(error);
