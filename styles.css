@@ -1,0 +1,54 @@
+img{
+    width: 350px;
+    height: 350px;
+    display: fixed;
+    
+}
+
+body{
+    display: flex;
+    align-items: center;
+    width: 60%;
+    height: 500px;
+    justify-content: center;
+    border: 1px solid #f1d6d6; 
+    flex-direction: column;
+    background-color: rgb(51, 47, 47);
+    margin-top: 100px;
+}
+html{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+     flex-direction: column;
+     background-color: #474747;
+     background-repeat: no-repeat;
+     color: aliceblue;
+     background-size: 100% 940px; 
+     font-family: 'Rubic', sans-serif;
+}
+.btn{
+    
+    background-color: rgb(143, 135, 135);
+    color: white;
+    border: none;
+    height: 25px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+.btn:hover{
+    background-color: rgb(117, 113, 113);
+    transition: background-color 0.3s ease;
+}
+     
+.pokemonName{
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+.form{
+     
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+}
