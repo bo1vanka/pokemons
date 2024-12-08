@@ -1,14 +1,12 @@
-
-async function fetchData(){
-
-    try{
-
+async function fetchData() {
+    try {
         const pokemonName = document.getElementById("pokemonName").value.toLowerCase();
 
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
          
-        if(!response.ok){
+        if (!response.ok) {
             throw new Error("Could not fetch resource");
+            
         }
 
         const data = await response.json();
@@ -17,28 +15,26 @@ async function fetchData(){
         const pokemonType = data.types.map(typeInfo => typeInfo.type.name).join(", ");
         const pokemonWeight = data.weight;  
         const pokemonHeight = data.height;
-
+       
+        const pokemonAbilities = data.abilities.map(abilityInfo => abilityInfo.ability.name).join(", ");
 
         const imgElement = document.getElementById("pokemonSprite");
         const weightElement = document.getElementById("pokemonWeight");
         const typeElement = document.getElementById("pokemonType");
         const heightElement = document.getElementById("pokemonHeight");
-
+        const abilitiesElement = document.getElementById("pokemonAbilities");
+       
 
         imgElement.src = pokemonSprite;
         imgElement.style.display = "block";
 
         weightElement.textContent = `Weight: ${pokemonWeight / 10} kg`;
-        heightElement.textContent = `Height: ${pokemonHeight / 10} m  `;
+        heightElement.textContent = `Height: ${pokemonHeight / 10} m`;
         typeElement.textContent = `Type: ${pokemonType}`;
+        abilitiesElement.textContent = `Abilities: ${pokemonAbilities}`;
         
 
-
-
-
-
-    }
-    catch(error){
+    } catch (error) {
         console.error(error);
     }
 }
